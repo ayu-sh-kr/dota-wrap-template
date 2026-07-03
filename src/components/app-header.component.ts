@@ -31,7 +31,7 @@ export class AppHeaderComponent extends BaseElement {
         <div class="mx-auto flex max-w-6xl items-center justify-between gap-4">
           <a
             href="/"
-            class="truncate text-2xl font-extrabold text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus"
+            class="truncate text-2xl font-extrabold text-couture-black-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-couture-black-50"
           >
             Dota
           </a>
@@ -40,9 +40,15 @@ export class AppHeaderComponent extends BaseElement {
             type="button"
             aria-label="${themeLabel}"
             title="${themeLabel}"
-            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-ink transition-colors duration-200 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:hover:bg-white/10"
+            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-couture-black-950 transition-colors duration-200 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-couture-black-50 dark:hover:bg-white/10"
           >
-            <dota-icon name="${themeIcon}" size="md" variant="ghost"></dota-icon>
+            <dota-icon 
+                name="${themeIcon}" 
+                size="md" variant="ghost" 
+                classname="cursor-pointer active:scale-95" 
+                color="black"
+            >
+            </dota-icon>
           </button>
         </div>
       </header>
