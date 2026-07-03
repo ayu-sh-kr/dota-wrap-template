@@ -48,7 +48,7 @@ export class HomePage extends DotaPageElement {
                 href="https://dota-workspace.vercel.app/docs?content=Getting-Started.md"
                 target="_blank"
                 rel="noreferrer"
-                class="inline-flex min-h-11 items-center justify-center rounded-full bg-ink px-5 py-3 text-sm font-semibold text-couture-black-50 transition-colors duration-200 hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-couture-black-50 dark:bg-couture-black-50 dark:text-couture-black-950 dark:hover:bg-couture-black-50/90 dark:focus-visible:ring-offset-couture-black-950"
+                class="inline-flex min-h-11 items-center justify-center rounded-full bg-couture-black-950 px-5 py-3 text-sm font-semibold text-couture-black-50 transition-colors duration-200 hover:bg-couture-black-950/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-couture-black-50 dark:bg-couture-black-50 dark:text-couture-black-950 dark:hover:bg-couture-black-50/90 dark:focus-visible:ring-offset-couture-black-950"
               >
                 Read documentation
               </a>
