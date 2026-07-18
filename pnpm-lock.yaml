@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@ayu-sh-kr/dota-ui':
-        specifier: 0.0.15
-        version: 0.0.15
+        specifier: 0.0.17
+        version: 0.0.17
       '@ayu-sh-kr/dota-wrap':
-        specifier: 0.0.16
-        version: 0.0.16(reflect-metadata@0.2.2)
+        specifier: 0.0.18
+        version: 0.0.18(reflect-metadata@0.2.2)
       '@types/node':
         specifier: ^26.1.0
         version: 26.1.0
@@ -45,14 +45,14 @@ packages:
   '@ayu-sh-kr/dota-event@0.0.5':
     resolution: {integrity: sha512-1p7PNrFfd5bU+sMIGcbO2vmmB7bx4GxVvlPl35flPuPZwSIAmV51aqXStFp2Kw7T/DD6vJ3ObixGe+YY2XzvBQ==}
 
-  '@ayu-sh-kr/dota-ui@0.0.15':
-    resolution: {integrity: sha512-Uq12fH8PBQgj2MqTfWtAH1quCQ8oiBsKEbsQWBBlHJqw7qAHzGt3IjpEPc2baINxfvDs7GFALuHUiII6favRYA==}
+  '@ayu-sh-kr/dota-ui@0.0.17':
+    resolution: {integrity: sha512-Arx+wWXnJ8x+5mZFosXSPIJG3xAWIbr9wkieTRMmk2yctJ4+zTbz3nHR79Akwn1Z3ceBeqxL674285HX2Av4Eg==}
 
-  '@ayu-sh-kr/dota-web-type-json@0.0.3':
-    resolution: {integrity: sha512-uRvgXRBScQH9BecGXKwDruj7JSasMhui62Hc8vFt8/aCNF5gNzHtrbO0y+P5NbmzD9hHey0/WFTrfcICJkY/FA==}
+  '@ayu-sh-kr/dota-web-type-json@0.0.5':
+    resolution: {integrity: sha512-Py7wNlSSOx/EwziduSvTgRONwt9vCyX1pavtcWouuunCkVGHUpSGY90t1HJ8Qka5WO2/7ObC7h1BtK3k/ZCV2Q==}
 
-  '@ayu-sh-kr/dota-wrap@0.0.16':
-    resolution: {integrity: sha512-8fT9iSZHpFF18VaV5W1ETqXGy+0J1jGuGOqKCUdf3iiMmNiSD1xfEvNwzaleiC/xkUKtc5ojsZvSN8BC5LCPAQ==}
+  '@ayu-sh-kr/dota-wrap@0.0.18':
+    resolution: {integrity: sha512-dQkpSOCVuI+WEYeOp+YBCWWo5CF4xlVbwj2b2vovB72HF/sgLGLDTD37RTrKdPbwTym/HG/tAuj/xaFxPSKqKw==}
     peerDependencies:
       reflect-metadata: '>=0.2.0'
 
@@ -857,16 +857,16 @@ snapshots:
     dependencies:
       reflect-metadata: 0.2.2
 
-  '@ayu-sh-kr/dota-ui@0.0.15':
+  '@ayu-sh-kr/dota-ui@0.0.17':
     dependencies:
       '@ayu-sh-kr/dota-core': 1.9.5
       '@ayu-sh-kr/dota-event': 0.0.5
-      '@ayu-sh-kr/dota-web-type-json': 0.0.3
+      '@ayu-sh-kr/dota-web-type-json': 0.0.5
       '@floating-ui/dom': 1.7.6
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  '@ayu-sh-kr/dota-web-type-json@0.0.3':
+  '@ayu-sh-kr/dota-web-type-json@0.0.5':
     dependencies:
       '@ayu-sh-kr/dota-ast-utils': 0.0.1
       '@ayu-sh-kr/dota-core': 1.9.5
@@ -876,7 +876,7 @@ snapshots:
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  '@ayu-sh-kr/dota-wrap@0.0.16(reflect-metadata@0.2.2)':
+  '@ayu-sh-kr/dota-wrap@0.0.18(reflect-metadata@0.2.2)':
     dependencies:
       '@swc/core': 1.15.43
       consola: 3.4.2
