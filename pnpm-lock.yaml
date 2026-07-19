@@ -12,8 +12,8 @@ importers:
         specifier: 0.0.17
         version: 0.0.17
       '@ayu-sh-kr/dota-wrap':
-        specifier: 0.0.18
-        version: 0.0.18(reflect-metadata@0.2.2)
+        specifier: 0.0.19
+        version: 0.0.19(reflect-metadata@0.2.2)
       '@types/node':
         specifier: ^26.1.0
         version: 26.1.0
@@ -45,14 +45,20 @@ packages:
   '@ayu-sh-kr/dota-event@0.0.5':
     resolution: {integrity: sha512-1p7PNrFfd5bU+sMIGcbO2vmmB7bx4GxVvlPl35flPuPZwSIAmV51aqXStFp2Kw7T/DD6vJ3ObixGe+YY2XzvBQ==}
 
+  '@ayu-sh-kr/dota-rest@1.1.5':
+    resolution: {integrity: sha512-hiYdYYTRTZZS57WUD0IrdW1YLFZilPXN3LiBWPiUUAqbJ4Z9/WZ5Nzzg99+JC1sRYTl7qDIE5MYW1apTa1Xz9Q==}
+
+  '@ayu-sh-kr/dota-router@0.0.26':
+    resolution: {integrity: sha512-TjFHWer3swwcSasuQJvaJbx0HCD6wOWu4na+noKh5ymHEy/FBjRaAxSt5woeZRBFCh0ND4q1NgIbht3hQGjf2g==}
+
   '@ayu-sh-kr/dota-ui@0.0.17':
     resolution: {integrity: sha512-Arx+wWXnJ8x+5mZFosXSPIJG3xAWIbr9wkieTRMmk2yctJ4+zTbz3nHR79Akwn1Z3ceBeqxL674285HX2Av4Eg==}
 
   '@ayu-sh-kr/dota-web-type-json@0.0.5':
     resolution: {integrity: sha512-Py7wNlSSOx/EwziduSvTgRONwt9vCyX1pavtcWouuunCkVGHUpSGY90t1HJ8Qka5WO2/7ObC7h1BtK3k/ZCV2Q==}
 
-  '@ayu-sh-kr/dota-wrap@0.0.18':
-    resolution: {integrity: sha512-dQkpSOCVuI+WEYeOp+YBCWWo5CF4xlVbwj2b2vovB72HF/sgLGLDTD37RTrKdPbwTym/HG/tAuj/xaFxPSKqKw==}
+  '@ayu-sh-kr/dota-wrap@0.0.19':
+    resolution: {integrity: sha512-NSikjeJgeqGQJLC4aRiQvNUWrPzHM2Jv9DicXMThbjLOgD1TXO9kBb7PAP26yFgqMQlJRs7WftgNk00zSQHG9Q==}
     peerDependencies:
       reflect-metadata: '>=0.2.0'
 
@@ -857,6 +863,13 @@ snapshots:
     dependencies:
       reflect-metadata: 0.2.2
 
+  '@ayu-sh-kr/dota-rest@1.1.5': {}
+
+  '@ayu-sh-kr/dota-router@0.0.26':
+    dependencies:
+      '@ayu-sh-kr/dota-core': 1.9.5
+      reflect-metadata: 0.2.2
+
   '@ayu-sh-kr/dota-ui@0.0.17':
     dependencies:
       '@ayu-sh-kr/dota-core': 1.9.5
@@ -876,8 +889,12 @@ snapshots:
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  '@ayu-sh-kr/dota-wrap@0.0.18(reflect-metadata@0.2.2)':
+  '@ayu-sh-kr/dota-wrap@0.0.19(reflect-metadata@0.2.2)':
     dependencies:
+      '@ayu-sh-kr/dota-core': 1.9.5
+      '@ayu-sh-kr/dota-event': 0.0.5
+      '@ayu-sh-kr/dota-rest': 1.1.5
+      '@ayu-sh-kr/dota-router': 0.0.26
       '@swc/core': 1.15.43
       consola: 3.4.2
       fast-glob: 3.3.3

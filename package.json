@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@ayu-sh-kr/dota-ui": "0.0.17",
-    "@ayu-sh-kr/dota-wrap": "0.0.18",
+    "@ayu-sh-kr/dota-wrap": "0.0.19",
     "@types/node": "^26.1.0",
     "reflect-metadata": "^0.2.2"
   },
