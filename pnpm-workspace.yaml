@@ -2,4 +2,5 @@ allowBuilds:
   '@swc/core': true
   esbuild: false
 minimumReleaseAgeExclude:
-  - '@ayu-sh-kr/dota-wrap@0.0.18 || 0.0.19'
+  - '@ayu-sh-kr/dota-wrap@0.0.18 || 0.0.19 || 0.0.22'
+  - '@ayu-sh-kr/dota-router@0.0.29'
