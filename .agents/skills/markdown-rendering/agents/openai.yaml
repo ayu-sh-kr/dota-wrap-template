@@ -1,0 +1,7 @@
+interface:
+  display_name: "Markdown Rendering"
+  short_description: "Add Markdown docs to any web app"
+  default_prompt: "Use $markdown-rendering to add a production-ready Markdown content pipeline to this web app."
+
+policy:
+  allow_implicit_invocation: true
