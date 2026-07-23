@@ -1,6 +1,6 @@
 ---
 name: dark-mode
-description: Use when implementing, modifying, or reviewing dark mode in a Dota Wrap/Dota Web project. Covers the local convention for toggling Tailwind class-based dark mode with GeneralUtils, LocalStorageService, AppComponent startup initialization, dark-mode-button, themeChange window events, and dark: Tailwind styling.
+description: Use when implementing, modifying, or reviewing dark mode in a Dota Wrap/Dota Web project. Covers the local convention for toggling Tailwind class-based dark mode with GeneralUtils, persisted theme preference, AppComponent startup initialization, dark-mode-button, themeChange window events, and dark: Tailwind styling.
 ---
 
 # Skill: Implementing Dark Mode with dota-core
@@ -12,7 +12,15 @@ Dark mode in a dota-wrap application is implemented using three cooperating piec
 2. A `GeneralUtils` helper for all theme logic
 3. A toggle web component that listens for the `themeChange` window event
 
-Tailwind must be configured with `darkMode: 'class'` (the default for dota-web).
+In this portfolio, `src/style.css` declares the class variant with `@custom-variant dark (&:where(.dark, .dark *));`. Keep theme tokens in `:root` and override them under `html.dark` so colocated component styles respond to the same class.
+
+## Portfolio file conventions
+
+- Theme logic lives in `src/utils/general.utils.ts` and uses the `theme` localStorage key.
+- The toggle lives in `src/components/dark-mode-button/dark-mode-button.component.ts` with its sibling `.component.css`.
+- The Dota Vite preloader discovers the component; do not import it from `src/app.component.ts` or `src/main.ts`.
+- Import the sibling stylesheet from `src/style.css`, alongside the other component stylesheets.
+- `index.html` applies the saved/system class before the module loads to avoid a light-mode flash.
 
 ---
 
