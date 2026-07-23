@@ -1,0 +1,4 @@
+interface:
+  display_name: "SVG API Flow Diagrams"
+  short_description: "Create clear SVG API flow diagrams"
+  default_prompt: "Use $svg-api-flow-diagrams to create or repair an SVG diagram for this API flow."
