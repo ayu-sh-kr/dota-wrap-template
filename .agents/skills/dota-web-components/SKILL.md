@@ -1,11 +1,11 @@
 ---
 name: dota-web-components
-description: Use when creating, modifying, or reviewing components and pages in packages/apps/dota-web. Captures this repository's Dota Wrap/Dota Core conventions for custom element classes, decorators, routing, lifecycle hooks, properties, events, rendering, Tailwind styling, markdown views, and registration.
+description: Use when creating, modifying, or reviewing components and pages in a Dota Wrap app. Captures this repository's Dota Wrap/Dota Core conventions for custom element classes, decorators, routing, lifecycle hooks, properties, events, rendering, Tailwind styling, markdown views, and preloader registration.
 ---
 
 # Dota Web Components Skill
 
-Use this skill when creating or modifying components in `packages/apps/dota-web`.
+Use this skill when creating or modifying components in this app's `src` tree (or the equivalent Dota Web app tree).
 Dota web components are TypeScript classes built on `dota-core`/`dota-wrap`, registered with decorators, and rendered as custom elements using HTML string templates.
 
 Primary local references:
@@ -80,6 +80,26 @@ Conventions:
 - Keep `shadow: false` unless style isolation is explicitly required. `dota-web` relies on global Tailwind classes and dark-mode variants.
 - Include an explicit constructor that calls `super()` when matching existing component style.
 - Return a string from `render()`. Use either `HTML\`...\`` from core or a plain template string with `// language=html`.
+
+## Component file organization and CSS
+
+Keep each local component in a directory named after the component. Preserve the component's filename and colocate its stylesheet:
+
+```text
+src/components/hero-section/
+├── hero-section.component.ts
+└── hero-section.component.css
+```
+
+Use the same pattern for every component (`app-header/app-header.component.ts`, `app-header/app-header.component.css`, and so on). The TypeScript filename must retain the `.component.ts` suffix because the Dota Vite preloader scans `src/components/**/*.component.ts`.
+
+Import the individual component stylesheets from the app stylesheet, `src/style.css`, alongside the Tailwind and theme imports:
+
+```css
+@import "./components/hero-section/hero-section.component.css";
+```
+
+Do not import component CSS from the component TypeScript file, and do not append component-specific selectors to `src/style.css`. Keep `src/style.css` limited to Tailwind setup, shared design tokens, and document-level rules. Put component selectors, responsive rules, motion states, and component-specific reduced-motion/forced-colors rules in the colocated stylesheet.
 
 ## Pages
 
@@ -288,18 +308,21 @@ Do not call `updateHTML()` in the constructor or before the component is initial
 
 After `updateHTML()`, `BaseElement` rebinds `@BindEvent` methods and element references.
 
-## Registration
+## Registration and the Dota Vite preloader
 
-The app uses `initializeApp()` in `packages/apps/dota-web/src/main.ts` with modules from `virtual:dota-components` and routes from `virtual:dota-routes`.
+This standalone app configures `dotaVitePreloader` in `vite.config.ts` with the repository root as its scan root. The preloader discovers decorated custom elements and exposes them through the generated `virtual:dota-components` module. `main.ts` registers those discovered constructors by passing them to `initializeApp({ modules: components })`.
 
 When adding a component:
 
 - Put it under the relevant `src/components/...` folder.
-- Export it through a nearby `index.ts` when that folder already uses one.
-- Ensure it is discoverable by the Dota Vite preloader conventions used in the repo.
-- For pages, add `@Route` and make sure the page is imported/exported consistently with `src/pages/index.ts`.
+- Use the `<component-name>/<component-name>.component.ts` and `<component-name>/<component-name>.component.css` layout described above.
+- Add `@Component({ selector, shadow: false })` to the class.
+- Do not import component files into `app.component.ts` for side effects; the preloader owns component discovery and registration.
+- Do not add a manual component import list to `main.ts`; import `components` from `virtual:dota-components` and pass it as `modules`.
+- Import the root class and any page classes explicitly in `main.ts` when `initializeApp` needs their constructors for `root`, `defaultRoute`, or `errorRoute`.
+- For pages, add `@Route` and export them through the local pages index when the app uses one. The generated `virtual:dota-routes` module supplies the route configuration.
 
-External UI components from `@ayu-sh-kr/dota-ui` and markdown components from `@ayu-sh-kr/dota-md` are registered through `externalComponents` in `main.ts`.
+External UI components and markdown components are separate from preloaded local components. Register those constructors through `externalComponents` in `main.ts` only when the app actually uses them.
 
 ## Checklist
 
@@ -313,5 +336,6 @@ Before finishing a Dota web component:
 - DOM events use `@BindEvent`, `@HostListener`, `@WindowListener`, or `@DocumentListener`.
 - App events use `ApplicationEventService` and `@OnEvent`.
 - Markup uses Tailwind classes with dark-mode variants where needed.
+- Component-specific CSS lives beside the component and is imported by `src/style.css`; `src/style.css` contains only global setup/tokens/document rules.
 - Internal state changes that affect markup call `this.updateHTML()`.
 - Data loading happens after connect/init, not in `render()` or the constructor.
