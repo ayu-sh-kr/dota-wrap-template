@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Tokens"
+  short_description: "Keep palette and typography changes centralized"
+  default_prompt: "Use $design-tokens to centralize this project’s colors and typography."
