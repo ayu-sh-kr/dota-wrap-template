@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Wiring"
+  short_description: "Register blog markdown in dota-web."
+  default_prompt: "Use the blog-wiring skill to wire this markdown blog into dota-web by placing it in the correct blogs folder and adding the matching entry in blogs.config.ts."
