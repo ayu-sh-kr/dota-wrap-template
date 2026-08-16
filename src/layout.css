@@ -1,0 +1,24 @@
+/* Shared page geometry. Colours and component-specific presentation stay elsewhere. */
+:root {
+  --layout-page-max: 80rem; --layout-reading-max: 45rem; --layout-content-max: 60rem; --layout-form-max: 38rem; --layout-gutter: clamp(1.25rem, 4vw, 3rem);
+  --layout-section-sm: clamp(2rem, 1.5rem + 2.222vw, 3.5rem); --layout-section-md: clamp(3rem, 2.167rem + 3.704vw, 5.5rem); --layout-section-lg: clamp(4.5rem, 9vw, 8rem); --layout-section-hero: clamp(6rem, 4.667rem + 5.926vw, 10rem);
+  --layout-space-1: .25rem; --layout-space-2: .5rem; --layout-space-3: .75rem; --layout-space-4: 1rem; --layout-space-5: 1.5rem; --layout-space-6: 2rem; --layout-space-7: 3rem; --layout-space-8: 4rem; --layout-space-9: 6rem; --layout-space-10: 8rem;
+  --layout-radius-xs: 4px; --layout-radius-sm: 8px; --layout-radius-md: 14px; --layout-radius-lg: 20px; --layout-radius-xl: 28px; --layout-radius-pill: 999px;
+  --layout-nav-h: 57px; --layout-stick: calc(var(--layout-nav-h) + var(--layout-space-4));
+  --layout-z-under: -1; --layout-z-base: 1; --layout-z-raised: 10; --layout-z-sticky: 20; --layout-z-nav: 30; --layout-z-overlay: 40; --layout-z-modal: 50; --layout-z-toast: 60;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { overflow-x: clip; }
+body { min-block-size: 100svh; }
+img, svg, video, canvas { display: block; max-inline-size: 100%; block-size: auto; }
+.layout-page, .layout-reading, .layout-content, .layout-form { margin-inline: auto; padding-inline: var(--layout-gutter); }
+.layout-page { max-inline-size: var(--layout-page-max); } .layout-reading { max-inline-size: var(--layout-reading-max); } .layout-content { max-inline-size: var(--layout-content-max); } .layout-form { max-inline-size: var(--layout-form-max); }
+.layout-section { padding-block: var(--layout-section-md); } .layout-section-sm { padding-block: var(--layout-section-sm); } .layout-section-lg { padding-block: var(--layout-section-lg); } .layout-section-hero { padding-block: var(--layout-section-hero) var(--layout-section-md); } .layout-section-end { padding-block: var(--layout-section-md) var(--layout-section-lg); } .layout-section-flush { padding-block-start: 0; }
+.layout-stack { --layout-stack-gap: var(--layout-space-4); } .layout-stack > * + * { margin-block-start: var(--layout-stack-gap); } .layout-stack-xs { --layout-stack-gap: var(--layout-space-2); } .layout-stack-sm { --layout-stack-gap: var(--layout-space-3); } .layout-stack-lg { --layout-stack-gap: var(--layout-space-5); } .layout-stack-xl { --layout-stack-gap: var(--layout-space-6); }
+.layout-grid, .layout-grid-auto, .layout-grid-2, .layout-grid-3, .layout-grid-4 { display: grid; gap: var(--layout-space-5); } .layout-grid-auto { grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr)); } .layout-grid-2, .layout-grid-3, .layout-grid-4 { grid-template-columns: 1fr; } .layout-grid > *, .layout-grid-auto > *, .layout-grid-2 > *, .layout-grid-3 > *, .layout-grid-4 > * { min-inline-size: 0; }
+.layout-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--layout-space-3); } .layout-row-split { justify-content: space-between; } .layout-row-top { align-items: flex-start; }
+.layout-rail { position: static; } [id] { scroll-margin-block-start: var(--layout-stick); }
+@media (min-width: 520px) { .layout-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 700px) { .layout-grid-2 { grid-template-columns: repeat(2, 1fr); } .layout-grid-3 { grid-template-columns: repeat(3, 1fr); } .layout-grid-4 { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1100px) { .layout-rail { position: sticky; inset-block-start: var(--layout-stick); align-self: start; } }
