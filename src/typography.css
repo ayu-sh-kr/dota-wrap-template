@@ -1,0 +1,45 @@
+/* Shared type roles. Keep component type choices mapped to these tokens. */
+:root {
+  --primary-font: var(--font-sans);
+  --type-display-size: clamp(2.75rem, 1.33rem + min(6.3vw, 8svh), 7rem);
+  --type-display-weight: 700;
+  --type-display-tracking: -0.04em;
+  --type-display-leading: 1;
+  --type-section-size: clamp(2.25rem, 1.67rem + 2.6vw, 4rem);
+  --type-section-weight: 700;
+  --type-section-tracking: -0.04em;
+  --type-section-leading: 1.05;
+  --type-subsection-size: clamp(1.8rem, 1.56rem + 1.04vw, 2.5rem);
+  --type-lede-size: clamp(1rem, 0.93rem + 0.3vw, 1.2rem);
+  --type-lede-leading: 1.65;
+  --type-body-size: 1rem;
+  --type-body-leading: 1.6;
+  --type-compact-size: 0.875rem;
+  --type-compact-leading: 1.55;
+  --type-card-title-size: 1.05rem;
+  --type-card-title-weight: 600;
+  --type-card-title-tracking: -0.015em;
+  --type-eyebrow-size: 0.8125rem;
+  --type-eyebrow-weight: 600;
+  --type-eyebrow-tracking: 0.08em;
+  --type-label-size: 0.75rem;
+  --type-label-weight: 600;
+  --type-label-tracking: 0.06em;
+  --type-control-size: 0.9375rem;
+  --type-control-weight: 600;
+  --type-price-size: clamp(2rem, 1.77rem + 1.04vw, 2.7rem);
+}
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { font-family: var(--primary-font), sans-serif; font-size: var(--type-body-size); line-height: var(--type-body-leading); text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+:where(button, input, select, textarea) { font: inherit; }
+.type-display, .type-section, .type-subsection { text-wrap: balance; }
+.type-display { font-size: var(--type-display-size); font-weight: var(--type-display-weight); letter-spacing: var(--type-display-tracking); line-height: var(--type-display-leading); }
+.type-section { font-size: var(--type-section-size); font-weight: var(--type-section-weight); letter-spacing: var(--type-section-tracking); line-height: var(--type-section-leading); }
+.type-subsection { font-size: var(--type-subsection-size); font-weight: var(--type-section-weight); letter-spacing: var(--type-section-tracking); line-height: var(--type-section-leading); }
+.type-lede { font-size: var(--type-lede-size); line-height: var(--type-lede-leading); }
+.type-eyebrow, .type-label { text-transform: uppercase; }
+.type-eyebrow { font-size: var(--type-eyebrow-size); font-weight: var(--type-eyebrow-weight); letter-spacing: var(--type-eyebrow-tracking); }
+.type-label { font-size: var(--type-label-size); font-weight: var(--type-label-weight); letter-spacing: var(--type-label-tracking); }
+.type-price, [data-count] { font-variant-numeric: tabular-nums; }
+@media (pointer: coarse) { :where(input, select, textarea) { font-size: 1rem; } }
