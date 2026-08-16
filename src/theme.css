@@ -1,7 +1,10 @@
 @theme {
-
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, "Segoe UI", sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, "Segoe UI", sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, "Segoe UI",
+    sans-serif;
+  --font-display:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, "Segoe UI",
+    sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --font-helvetica: Helvetica, "Helvetica Neue", Arial, sans-serif;
   --font-dm-sans: "DM Sans", Arial, sans-serif;
