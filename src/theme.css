@@ -474,4 +474,53 @@
   --color-red-400: #f87171;
   --color-purple-400: #c084fc;
   --color-purple-600: #9333ea;
+
+  /* Extended palette families. Map them to semantic roles in style.css. */
+  --color-espresso-noir-50: #faf7f5;
+  --color-espresso-noir-100: #f0e8e4;
+  --color-espresso-noir-200: #decac0;
+  --color-espresso-noir-300: #c4a092;
+  --color-espresso-noir-400: #9e6d5c;
+  --color-espresso-noir-500: #2b1b17;
+  --color-espresso-noir-600: #261813;
+  --color-espresso-noir-700: #20130f;
+  --color-espresso-noir-800: #190f0b;
+  --color-espresso-noir-900: #120a07;
+  --color-espresso-noir-950: #090503;
+
+  --color-golden-hour-50: #fffcef;
+  --color-golden-hour-100: #fff5cc;
+  --color-golden-hour-200: #ffe999;
+  --color-golden-hour-300: #ffda52;
+  --color-golden-hour-400: #ffca1f;
+  --color-golden-hour-500: #ffbf00;
+  --color-golden-hour-600: #dfa700;
+  --color-golden-hour-700: #b88700;
+  --color-golden-hour-800: #896500;
+  --color-golden-hour-900: #5a4300;
+  --color-golden-hour-950: #302300;
+
+  --color-ceremonial-matcha-50: #f5f7f5;
+  --color-ceremonial-matcha-100: #e5eae5;
+  --color-ceremonial-matcha-200: #cad4cb;
+  --color-ceremonial-matcha-300: #a9b9ac;
+  --color-ceremonial-matcha-400: #788c7d;
+  --color-ceremonial-matcha-500: #4a5d4e;
+  --color-ceremonial-matcha-600: #405143;
+  --color-ceremonial-matcha-700: #354337;
+  --color-ceremonial-matcha-800: #28322a;
+  --color-ceremonial-matcha-900: #1a211c;
+  --color-ceremonial-matcha-950: #0e120f;
+
+  --color-cobalt-sky-50: #f1f7ff;
+  --color-cobalt-sky-100: #dcecff;
+  --color-cobalt-sky-200: #b9d7ff;
+  --color-cobalt-sky-300: #83b9ff;
+  --color-cobalt-sky-400: #4d96ff;
+  --color-cobalt-sky-500: #1f73e8;
+  --color-cobalt-sky-600: #155fc8;
+  --color-cobalt-sky-700: #104da4;
+  --color-cobalt-sky-800: #103f84;
+  --color-cobalt-sky-900: #12366b;
+  --color-cobalt-sky-950: #0d2142;
 }
