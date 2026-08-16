@@ -1,0 +1,4 @@
+interface:
+  display_name: "Color Usage"
+  short_description: "Apply accessible semantic color systems."
+  default_prompt: "Use $color-usage to review and improve the application color system."
