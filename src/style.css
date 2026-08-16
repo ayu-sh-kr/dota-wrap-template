@@ -1,8 +1,59 @@
 @import "tailwindcss";
 @import "./theme.css";
+@import "./typography.css";
+@import "./layout.css";
 
 @source "../index.html";
 @source "../src/**/*.{ts}";
 @source "../node_modules/@ayu-sh-kr/dota-ui/dist/**/*.{mjs, cjs, ts}";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --primary-50: var(--color-persimmon-50);
+  --primary-100: var(--color-persimmon-100);
+  --primary-200: var(--color-persimmon-200);
+  --primary-300: var(--color-persimmon-300);
+  --primary-400: var(--color-persimmon-400);
+  --primary-500: var(--color-persimmon-500);
+  --primary-600: var(--color-persimmon-600);
+  --primary-700: var(--color-persimmon-700);
+  --primary-800: var(--color-persimmon-800);
+  --primary-900: var(--color-persimmon-900);
+  --primary-950: var(--color-persimmon-950);
+
+  --primary-color: var(--primary-600);
+  --primary-color-hover: var(--primary-700);
+  --primary-color-strong: var(--primary-800);
+  --primary-color-subtle: var(--primary-100);
+  --primary-color-on: var(--color-paper-50);
+  --background-color: var(--color-paper-50);
+  --foreground-color: var(--color-inkstone-900);
+  --muted-color: var(--color-inkstone-600);
+  --muted-strong-color: var(--color-inkstone-700);
+  --border-color: var(--color-paper-300);
+  --surface-color: var(--color-paper-100);
+  --surface-hover-color: var(--color-paper-200);
+}
+
+html.dark {
+  --primary-color: var(--primary-400);
+  --primary-color-hover: var(--primary-300);
+  --primary-color-strong: var(--primary-200);
+  --primary-color-subtle: var(--primary-900);
+  --primary-color-on: var(--color-inkstone-950);
+  --background-color: var(--color-inkstone-950);
+  --foreground-color: var(--color-paper-50);
+  --muted-color: var(--color-paper-400);
+  --muted-strong-color: var(--color-paper-300);
+  --border-color: var(--color-inkstone-700);
+  --surface-color: var(--color-inkstone-900);
+  --surface-hover-color: var(--color-inkstone-800);
+}
+
+body {
+  margin: 0;
+  min-inline-size: 20rem;
+  color: var(--foreground-color);
+  background: var(--background-color);
+}
