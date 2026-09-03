@@ -6,7 +6,7 @@ description: Use when creating, modifying, or reviewing components and pages in 
 # Dota Web Components Skill
 
 Use this skill when creating or modifying components in this app's `src` tree (or the equivalent Dota Web app tree).
-Dota web components are TypeScript classes built on `dota-core`/`dota-wrap`, registered with decorators, and rendered as custom elements using HTML string templates.
+Dota web components are TypeScript classes built on `dota-core`/`dota-wrap`, registered with decorators, and rendered as custom elements using structured `dota-rendering` templates.
 
 Primary local references:
 
@@ -28,8 +28,8 @@ import {
   String,
   BindEvent,
   WindowListener,
-  HTML,
 } from "@ayu-sh-kr/dota-wrap/core";
+import { html } from "@ayu-sh-kr/dota-wrap/rendering";
 ```
 
 Use these package surfaces by responsibility:
@@ -63,8 +63,8 @@ export class ExampleCardComponent extends BaseElement {
     super();
   }
 
-  render(): string {
-    return HTML`
+  render() {
+    return html`
       <section class="rounded-lg border border-gray-200 dark:border-gray-800">
         Example
       </section>
@@ -79,7 +79,7 @@ Conventions:
 - Use PascalCase class names with a suffix like `Component` or `Page`.
 - Keep `shadow: false` unless style isolation is explicitly required. `dota-web` relies on global Tailwind classes and dark-mode variants.
 - Include an explicit constructor that calls `super()` when matching existing component style.
-- Return a string from `render()`. Use either `HTML\`...\`` from core or a plain template string with `// language=html`.
+- Return `dota-rendering` output from `render()`. Use `html\`...\`` from `@ayu-sh-kr/dota-wrap/rendering` rather than the legacy `HTML` helper from Dota Core.
 
 ## Component file organization and CSS
 
@@ -129,8 +129,8 @@ export class DocPage extends DotaPageElement {
     };
   }
 
-  render(): string {
-    return HTML`<doc-section></doc-section>`;
+  render() {
+    return html`<doc-section></doc-section>`;
   }
 }
 ```
@@ -197,7 +197,7 @@ async afterViewInit() {
 }
 ```
 
-Use `@OnEvent("connected", true)` when matching existing app event style. Use `@AfterInit()` for direct component setup after the first render. In either case, avoid doing DOM work in the constructor.
+Use `@AfterInit()` for direct setup after the first render. When the app's published event surface provides `@OnEvent`, use scoped `connected` and `disconnected` handlers for paired setup and teardown. In either case, avoid doing DOM work in the constructor.
 
 ## Events
 
@@ -238,15 +238,15 @@ Use native `CustomEvent`s for browser-level concerns like `themeChange` and `onP
 
 ## Rendering and Styling
 
-Render markup as HTML strings. Most components use Tailwind utilities directly in the returned template.
+Render markup with structured `dota-rendering` templates. Most components use Tailwind utilities directly in the returned template.
 
 ```ts
-render(): string {
+render() {
   const icon = GeneralUtils.isDarkMode()
     ? "material-symbols:dark-mode"
     : "material-symbols:sunny-rounded";
 
-  return `
+  return html`
     <span id="dark-button" class="active:scale-95 cursor-pointer">
       <dota-icon name="${icon}" color="${this.color}" variant="ghost" size="md"></dota-icon>
     </span>
@@ -310,7 +310,7 @@ After `updateHTML()`, `BaseElement` rebinds `@BindEvent` methods and element ref
 
 ## Registration and the Dota Vite preloader
 
-This standalone app configures `dotaVitePreloader` in `vite.config.ts` with the repository root as its scan root. The preloader discovers decorated custom elements and exposes them through the generated `virtual:dota-components` module. `main.ts` registers those discovered constructors by passing them to `initializeApp({ modules: components })`.
+This standalone app configures `dotaVitePlugins()` in `vite.config.ts` with the repository root as its scan root. The preloader discovers decorated custom elements and exposes them through the generated `virtual:dota-components` module. `main.ts` registers those discovered constructors by passing them to `initializeApp({ modules: components })`.
 
 When adding a component:
 
