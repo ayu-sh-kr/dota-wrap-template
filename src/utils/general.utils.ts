@@ -3,10 +3,9 @@ export class GeneralUtils {
   private static readonly colorSchemeMetaSelector = 'meta[name="color-scheme"]';
 
   static toggleDarkMode(): void {
-    const isDarkMode = document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.toggle("bg-slate-950", isDarkMode);
+    const isDarkMode = !this.isDarkMode();
+    this.setBrowserTheme(isDarkMode ? "dark" : "light");
     localStorage.setItem(this.themeStorageKey, isDarkMode ? "dark" : "light");
-    this.syncColorSchemeMeta(isDarkMode ? "dark" : "light");
     window.dispatchEvent(
       new CustomEvent("themeChange", {
         detail: { isDarkMode: GeneralUtils.isDarkMode() },
@@ -32,8 +31,8 @@ export class GeneralUtils {
   static setBrowserTheme(theme: string): void {
     const isDarkMode = theme === "dark";
     document.documentElement.classList.toggle("dark", isDarkMode);
-    document.documentElement.classList.toggle("bg-slate-950", isDarkMode);
-    this.syncColorSchemeMeta(theme);
+    document.documentElement.classList.toggle("light", !isDarkMode);
+    this.syncColorSchemeMeta(isDarkMode ? "dark" : "light");
   }
 
   private static syncColorSchemeMeta(theme: string): void {
