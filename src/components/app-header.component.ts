@@ -1,4 +1,5 @@
-import { BindEvent, BaseElement, Component, HTML, WindowListener } from "@ayu-sh-kr/dota-wrap/core";
+import { BindEvent, BaseElement, Component, WindowListener } from "@ayu-sh-kr/dota-wrap/core";
+import { html } from "@ayu-sh-kr/dota-wrap/rendering";
 import { GeneralUtils } from "@app/utils/general.utils.ts";
 
 @Component({
@@ -20,18 +21,17 @@ export class AppHeaderComponent extends BaseElement {
     this.updateHTML();
   }
 
-  render(): string {
+  render() {
     const isDarkTheme = typeof document !== "undefined" && GeneralUtils.isDarkMode();
     const themeIcon = isDarkTheme ? "mdi:white-balance-sunny" : "mdi:brightness-2";
     const themeLabel = isDarkTheme ? "Switch to light theme" : "Switch to dark theme";
 
-    // language=html
-    return `
-      <header class="absolute inset-x-0 top-0 z-20 px-5 pt-5 sm:px-6 lg:px-8">
-        <div class="mx-auto flex max-w-6xl items-center justify-between gap-4">
+    return html`
+      <header class="absolute inset-x-0 top-0 z-[var(--layout-z-nav)] px-5 pt-5 sm:px-6 lg:px-8">
+        <div class="layout-page flex items-center justify-between gap-4">
           <a
             href="/"
-            class="truncate text-2xl font-extrabold text-couture-black-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-couture-black-50"
+            class="truncate text-2xl font-extrabold text-[var(--foreground-color)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-color)]"
           >
             Dota
           </a>
@@ -40,7 +40,7 @@ export class AppHeaderComponent extends BaseElement {
             type="button"
             aria-label="${themeLabel}"
             title="${themeLabel}"
-            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-couture-black-950 transition-colors duration-200 hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus dark:text-couture-black-50 dark:hover:bg-white/10"
+            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[var(--foreground-color)] transition-colors duration-200 hover:bg-[var(--surface-hover-color)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary-color)]"
           >
             <dota-icon 
                 name="${themeIcon}" 
