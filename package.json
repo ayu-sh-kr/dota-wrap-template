@@ -16,9 +16,10 @@
   },
   "dependencies": {
     "@ayu-sh-kr/dota-ui": "0.0.28",
-    "@ayu-sh-kr/dota-wrap": "0.0.31",
+    "@ayu-sh-kr/dota-wrap": "0.0.34",
     "@types/node": "^26.2.0",
     "reflect-metadata": "^0.2.2"
   },
-  "web-types": "./web-types.json"
+  "web-types": "./web-types.json",
+  "customElements": "custom-elements.json"
 }
