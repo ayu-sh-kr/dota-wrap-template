@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "2.1.0",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "src/app.component.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "AppComponent",
+          "customElement": true,
+          "tagName": "app-root",
+          "superclass": {
+            "name": "BaseElement"
+          },
+          "members": [],
+          "attributes": []
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AppComponent",
+          "declaration": {
+            "name": "AppComponent"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "app-root",
+          "declaration": {
+            "name": "AppComponent"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/app-header.component.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "AppHeaderComponent",
+          "customElement": true,
+          "tagName": "app-header",
+          "superclass": {
+            "name": "BaseElement"
+          },
+          "members": [],
+          "attributes": []
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "AppHeaderComponent",
+          "declaration": {
+            "name": "AppHeaderComponent"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "app-header",
+          "declaration": {
+            "name": "AppHeaderComponent"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/pages/error.page.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "ErrorPage",
+          "customElement": true,
+          "tagName": "app-error",
+          "superclass": {
+            "name": "DotaPageElement"
+          },
+          "members": [
+            {
+              "kind": "field",
+              "name": "message",
+              "attribute": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "Page Not Found"
+            },
+            {
+              "kind": "field",
+              "name": "status",
+              "attribute": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "404"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "message",
+              "fieldName": "message",
+              "type": {
+                "text": "string"
+              },
+              "default": "Page Not Found"
+            },
+            {
+              "name": "status",
+              "fieldName": "status",
+              "type": {
+                "text": "string"
+              },
+              "default": "404"
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ErrorPage",
+          "declaration": {
+            "name": "ErrorPage"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "app-error",
+          "declaration": {
+            "name": "ErrorPage"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/pages/home.page.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "name": "HomePage",
+          "customElement": true,
+          "tagName": "app-home",
+          "superclass": {
+            "name": "DotaPageElement"
+          },
+          "members": [],
+          "attributes": []
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "HomePage",
+          "declaration": {
+            "name": "HomePage"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "app-home",
+          "declaration": {
+            "name": "HomePage"
+          }
+        }
+      ]
+    }
+  ]
+}
