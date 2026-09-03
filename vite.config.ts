@@ -1,21 +1,25 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
+import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 import tailwindcss from "@tailwindcss/vite";
-import dotaVitePreloader from "@ayu-sh-kr/dota-wrap/preloader-plugin";
-import dotaWebTypeJson from "@ayu-sh-kr/dota-wrap/web-type-json";
+import { dotaVitePlugins } from "@ayu-sh-kr/dota-wrap/vite";
+
+const projectRoot = fileURLToPath(new URL(".", import.meta.url));
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    dotaVitePreloader({
-      root: resolve(__dirname),
+    ...dotaVitePlugins({
+      root: projectRoot,
+      scanRoots: [projectRoot],
       logType: "info",
-    }),
-    dotaWebTypeJson({
-      root: resolve(__dirname),
-      scanRoots: [resolve(__dirname)],
-      outFile: "web-types.json",
-      logType: "info",
+      webTypes: {
+        outFile: "web-types.json",
+        customElementsManifest: { enabled: true },
+      },
+      eventMap: {
+        outFile: "src/event-map.d.ts",
+      },
     }),
   ],
   resolve: {
